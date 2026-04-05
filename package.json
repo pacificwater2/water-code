@@ -1,0 +1,38 @@
+{
+  "name": "water-code",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "A clean-room terminal coding agent inspired by the Claude Code architecture research.",
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "bin": {
+    "water-code": "./bin/water-code.js"
+  },
+  "scripts": {
+    "start": "node ./bin/water-code.js",
+    "demo": "node ./bin/water-code.js --provider planner",
+    "print": "node ./bin/water-code.js -p",
+    "test": "node --test",
+    "verify": "node ./scripts/verify.js",
+    "package": "node ./scripts/package.js",
+    "package-smoke": "node ./scripts/package-smoke.js",
+    "release-check": "node ./scripts/release-check.js",
+    "real-world-smoke": "node ./scripts/real-world-smoke.js",
+    "ship-check": "node ./scripts/ship-check.js",
+    "smoke": "node ./scripts/smoke.js",
+    "bridge-smoke": "node ./scripts/bridge-smoke.js",
+    "provider-smoke": "node ./scripts/provider-smoke.js",
+    "vscode-shim-smoke": "node ./scripts/vscode-shim-smoke.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

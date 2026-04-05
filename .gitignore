@@ -1,0 +1,12 @@
+.water-code/*
+!.water-code/commands/
+!.water-code/commands/**
+!.water-code/agents/
+!.water-code/agents/**
+!.water-code/skills/
+!.water-code/skills/**
+!.water-code/plugins/
+!.water-code/plugins/**
+!.water-code/mcp.json
+dist/
+node_modules/

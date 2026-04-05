@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "local_echo": {
+      "command": "node",
+      "args": ["./scripts/example-mcp-server.js"],
+      "dangerous": false
+    }
+  }
+}

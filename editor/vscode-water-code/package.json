@@ -1,0 +1,142 @@
+{
+  "name": "water-code-vscode",
+  "displayName": "Water Code",
+  "description": "Minimal VS Code shim for the Water Code adapter protocol.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:waterCode.panel",
+    "onCommand:waterCode.projectState",
+    "onCommand:waterCode.refreshPanel",
+    "onCommand:waterCode.switchProject",
+    "onCommand:waterCode.useWorktree",
+    "onCommand:waterCode.resumeSession",
+    "onCommand:waterCode.newSession",
+    "onCommand:waterCode.clearSession",
+    "onCommand:waterCode.doctor",
+    "onCommand:waterCode.onboard",
+    "onCommand:waterCode.promptSelection",
+    "onCommand:waterCode.promptInput",
+    "onCommand:waterCode.rewriteSelection",
+    "onCommand:waterCode.openOutput"
+  ],
+  "main": "./extension.js",
+  "type": "commonjs",
+  "contributes": {
+    "commands": [
+      {
+        "command": "waterCode.projectState",
+        "title": "Water Code: Project State"
+      },
+      {
+        "command": "waterCode.refreshPanel",
+        "title": "Water Code: Refresh Panel"
+      },
+      {
+        "command": "waterCode.switchProject",
+        "title": "Water Code: Switch Project"
+      },
+      {
+        "command": "waterCode.useWorktree",
+        "title": "Water Code: Use Worktree"
+      },
+      {
+        "command": "waterCode.resumeSession",
+        "title": "Water Code: Resume Session"
+      },
+      {
+        "command": "waterCode.newSession",
+        "title": "Water Code: New Session"
+      },
+      {
+        "command": "waterCode.clearSession",
+        "title": "Water Code: Clear Session"
+      },
+      {
+        "command": "waterCode.doctor",
+        "title": "Water Code: Doctor"
+      },
+      {
+        "command": "waterCode.onboard",
+        "title": "Water Code: Onboard"
+      },
+      {
+        "command": "waterCode.promptSelection",
+        "title": "Water Code: Prompt Selection"
+      },
+      {
+        "command": "waterCode.promptInput",
+        "title": "Water Code: Prompt Input"
+      },
+      {
+        "command": "waterCode.rewriteSelection",
+        "title": "Water Code: Rewrite Selection"
+      },
+      {
+        "command": "waterCode.openOutput",
+        "title": "Water Code: Open Output"
+      }
+    ],
+    "configuration": {
+      "title": "Water Code",
+      "properties": {
+        "waterCode.cliPath": {
+          "type": "string",
+          "default": "water-code",
+          "description": "Path to the Water Code CLI executable."
+        },
+        "waterCode.provider": {
+          "type": "string",
+          "default": "planner",
+          "description": "Default provider passed to Water Code adapter operations."
+        },
+        "waterCode.remoteUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Optional Water Code bridge URL. Leave blank to run locally in the workspace."
+        },
+        "waterCode.useWorkspaceRoot": {
+          "type": "boolean",
+          "default": true,
+          "description": "When enabled, pass the first workspace folder as --cwd to Water Code."
+        },
+        "waterCode.streamPrompts": {
+          "type": "boolean",
+          "default": true,
+          "description": "When enabled, prompt commands use the adapter's streaming event mode."
+        }
+      }
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "waterCode.panel",
+          "name": "Water Code"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "waterCode.refreshPanel",
+          "when": "view == waterCode.panel",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "waterCode.rewriteSelection",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
